@@ -21,5 +21,8 @@ build:
 prophet:
 	docker-compose up -d prophet
 
+rprophet:
+	docker build -f docker/rprophet/rprophet.dockerfile -t honir/rprophet:latest ./docker/rprophet
+
 shell:
 	docker-compose run --rm -w /usr/src/app prophet /bin/bash
