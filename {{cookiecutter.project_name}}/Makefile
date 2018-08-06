@@ -18,10 +18,13 @@ clean:
 build:
 	docker build -f docker/prophet/prophet.dockerfile -t honir/prophet:latest ./docker/prophet
 
+build-explore:
+	docker build -f docker/explore/explore.dockerfile -t matbrunt/analysis:latest ./docker/explore
+
 prophet:
 	docker-compose up -d prophet
 
-rprophet:
+build-rprophet:
 	docker build -f docker/rprophet/rprophet.dockerfile -t honir/rprophet:latest ./docker/rprophet
 
 shell:

@@ -11,8 +11,12 @@ RUN apt-get update && apt-get install -y \
     python-pip vim-tiny \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade scipy scikit-learn statsmodels fbprophet
+# These can be in requirements.txt, but keeping them separate for now
+# so don't have to rebuild earlier images when upgrading packages
+RUN pip install --upgrade pandas numpy scipy scikit-learn statsmodels fbprophet
 RUN pip install --upgrade pip seaborn openpyxl pyyaml jupyter xlrd
+RUN pip install --upgrade psycopg2-binary
+
 RUN mkdir -p /usr/src
 
 ENV PYTHONPATH /usr/src:$PYTHONPATH
