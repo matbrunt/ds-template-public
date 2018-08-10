@@ -35,6 +35,7 @@ src/notebooks/Untitled_files/
 
 .DS_Store/
 .vscode/
+.Trash*/
 
 # exclude data from source control by default
 src/data/
