@@ -41,6 +41,10 @@ class RedShiftConnection(Connection):
         self.credentials = credentials
         self.connect()
 
+    @staticmethod
+    def get_date_string(date_obj):
+        return date_obj.strftime('%Y-%m-%d')
+
     def connect(self):
         """Connect to redshift."""
         try:
@@ -75,6 +79,10 @@ class BigQueryConnection(Connection):
             self.private_key = os.path.abspath(os.path.join(root_dir, credentials['serviceaccount']))
         else:
             self.private_key = None
+
+    @staticmethod
+    def get_date_string(date_obj):
+        return date_obj.strftime('%Y%m%d')
 
     def run_sql(self, query):
         """Returns the data from BiqQuery"""
